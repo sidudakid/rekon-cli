@@ -24,7 +24,9 @@ void find_subdomains(const char *path){
 
 void js_files(const char *path){
   char command[1024];
-  snprintf(command, sizeof(command), "cat %s/urls.txt | grep -iE '.js'|grep -ivE '.json'|sort -u | tee %s/js.txt", path, path);
+      snprintf(command, sizeof(command),
+             "cat %s/urls.txt | grep -iE '.js' | grep -ivE '.json' | sort -u | tee %s/js.txt",
+             path, path);
   printf("Debug: Js command - %s", command);
   system(command);
 }
